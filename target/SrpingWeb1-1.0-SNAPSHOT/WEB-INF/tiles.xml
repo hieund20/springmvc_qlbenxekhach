@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache
+Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="baseLayout"
+                template="/WEB-INF/layout/base.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header"
+                       value="/WEB-INF/layout/header.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/footer.jsp" />
+    </definition>
+    <definition name="index" extends="baseLayout">
+        <put-attribute name="title" value="Trang chủ" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/index.jsp" />
+    </definition>
+    <definition name="route-list" extends="baseLayout">
+        <put-attribute name="title" value="Chi tiết nhà xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/route-list.jsp" />
+    </definition>
+    <definition name="route-detail" extends="baseLayout">
+        <put-attribute name="title" value="Chi tiết tuyến" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/route-detail.jsp" />
+    </definition>
+    <definition name="seat" extends="baseLayout">
+        <put-attribute name="title" value="Đặt chỗ" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/seat.jsp" />
+    </definition>
+    <definition name="cart" extends="baseLayout">
+        <put-attribute name="title" value="Giỏ hàng" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/cart.jsp" />
+    </definition>
+    <definition name="login" extends="baseLayout">
+        <put-attribute name="title" value="Đăng nhập" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/login.jsp" />
+    </definition>
+    <definition name="register" extends="baseLayout">
+        <put-attribute name="title" value="Đăng ký" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/register.jsp" />
+    </definition>
+    
+    <definition name="baseAdminLayout"
+                template="/WEB-INF/layout/base-admin.jsp">
+        <put-attribute name="title" value="Quản trị hệ thống nhà xe khách" />
+        <put-attribute name="left"
+                       value="/WEB-INF/layout/admin-left.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/admin-footer.jsp" />
+        <put-attribute name="content"
+                       value="..." />
+    </definition>
+    <definition name="garage-stat" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thống kê số lượng tuyến theo nhà xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/garage-stat.jsp" />
+    </definition>
+    <definition name="route-stat" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thống kê doanh thu theo tuyến" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/route-stat.jsp" />
+    </definition>
+    <definition name="route-month-stat" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thống kê doanh thu từng tuyến theo tháng" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/route-month-stat.jsp" />
+    </definition>
+    <definition name="route-year-stat" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thống kê doanh thu từng tuyến theo năm" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/route-year-stat.jsp" />
+    </definition>
+    <definition name="route-quarter-stat" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thống kê doanh thu từng tuyến theo từng quý" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/route-quarter-stat.jsp" />
+    </definition>
+    
+    <definition name="garage-admin" extends="baseAdminLayout">
+        <put-attribute name="title" value="Quản trị nhà xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/garage-admin.jsp" />
+    </definition>
+    <definition name="garage-admin-add" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thêm mới nhà xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/garage-admin-add.jsp" />
+    </definition>
+    <definition name="garage-admin-confirm" extends="baseAdminLayout">
+        <put-attribute name="title" value="Xác nhận đăng ký mới nhà xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/garage-admin-confirm.jsp" />
+    </definition>
+    
+    <definition name="baseGarageOwnerLayout"
+                template="/WEB-INF/layout/base-garage-owner.jsp">
+        <put-attribute name="title" value="Quản trị nhà xe" />
+        <put-attribute name="left"
+                       value="/WEB-INF/layout/garage-owner-left.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/admin-footer.jsp" />
+        <put-attribute name="content"
+                       value="..." />
+    </definition>
+    
+    
+    <definition name="garage-owner-add" extends="baseGarageOwnerLayout">
+        <put-attribute name="title" value="Tạo form đăng ký nhà xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/garage-owner-add.jsp" />
+    </definition>
+    <definition name="garage-add-route" extends="baseGarageOwnerLayout">
+        <put-attribute name="title" value="Thêm mới tuyến xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/garage-add-route.jsp" />
+    </definition>
+    <definition name="garage-add-trip" extends="baseGarageOwnerLayout">
+        <put-attribute name="title" value="Thêm mới chuyến xe" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/garage-add-trip.jsp" />
+    </definition>
+</tiles-definitions>
+
