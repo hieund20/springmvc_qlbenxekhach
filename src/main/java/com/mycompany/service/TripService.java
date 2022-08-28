@@ -6,12 +6,13 @@ package com.mycompany.service;
 
 import java.util.List;
 import com.mycompany.pojo.Trip;
+import java.util.Date;
 
 /**
  *
  * @author HIEU
  */
 public interface TripService {
-    List<Trip> getTripListByRouteId(int routeId);
+    List<Trip> getTripListByRouteId(int routeId, Date from, Date to);
     void addTrip(Trip trip);
 }

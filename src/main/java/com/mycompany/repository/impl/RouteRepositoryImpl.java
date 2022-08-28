@@ -44,7 +44,7 @@ public class RouteRepositoryImpl implements RouteRepository{
     }
 
     @Override
-    public List<Route> getRoutesByGarageId(int garageId) {
+    public List<Route> getRoutesByGarageId(int garageId, String fromKw, String toKw) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder b = s.getCriteriaBuilder();
         CriteriaQuery<Route> q = b.createQuery(Route.class);
@@ -54,6 +54,15 @@ public class RouteRepositoryImpl implements RouteRepository{
         List<Predicate> predicates = new ArrayList<>();
         Predicate p = b.equal(root.get("garageId"), garageId);
         predicates.add(p);
+
+        if (!"".equals(fromKw) && !fromKw.isEmpty()){
+            predicates.add(b.like(root.get("departure"), String.format("%%%s%%", fromKw)));
+        }
+        
+        if (!"".equals(toKw) && !toKw.isEmpty()){
+            predicates.add(b.like(root.get("destination"), String.format("%%%s%%", toKw)));
+        }
+        
         q.where(predicates.toArray(new Predicate[]{}));
         q.orderBy(b.desc(root.get("id")));
 

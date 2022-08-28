@@ -7,6 +7,7 @@ package com.mycompany.repository.impl;
 import com.mycompany.pojo.Trip;
 import com.mycompany.repository.TripRepository;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -31,7 +32,7 @@ public class TripRepositoryImpl implements TripRepository{
     private LocalSessionFactoryBean sessionFactory;
 
     @Override
-    public List<Trip> getTripListByRouteId(int routeId) {
+    public List<Trip> getTripListByRouteId(int routeId, Date from, Date to) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder b = s.getCriteriaBuilder();
         CriteriaQuery<Trip> q = b.createQuery(Trip.class);
@@ -41,6 +42,15 @@ public class TripRepositoryImpl implements TripRepository{
         List<Predicate> predicates = new ArrayList<>();
         Predicate p = b.equal(root.get("routeId"), routeId);
         predicates.add(p);
+        
+        if (from != null) {
+            predicates.add(b.greaterThanOrEqualTo(root.get("departure_date"), from));
+        }
+        
+        if (to != null) {
+            predicates.add(b.lessThanOrEqualTo(root.get("departure_date"), to));
+        }
+        
         q.where(predicates.toArray(new Predicate[]{}));
         q.orderBy(b.desc(root.get("id")), b.desc(root.get("start_time")));
 

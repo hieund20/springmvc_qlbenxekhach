@@ -32,8 +32,8 @@ public class RouteServiceImpl implements RouteService{
     }
 
     @Override
-    public List<Route> getRoutesByGarageId(int id) {
-        return this.routeRepository.getRoutesByGarageId(id);
+    public List<Route> getRoutesByGarageId(int id, String fromKw, String toKw) {
+        return this.routeRepository.getRoutesByGarageId(id, fromKw, toKw);
     }
 
     @Override

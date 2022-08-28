@@ -11,7 +11,25 @@
 
 <div class="w-100 mt-5">
     <h4>${garage.name}</h4>
+    <hr>
     <br/>
+    <h5 class="text-primary">Tìm kiếm tuyến xe</h5>
+    <form action="">
+        <div class="row">
+            <div class="form-group col">
+                <label>Điểm khởi hành</label>
+                <input type="text" name="fromKw" class="form-control"/>
+            </div>
+            <div class="form-group col">
+                <label>Điểm kết thúc</label>
+                <input type="text" name="toKw" class="form-control"/>
+            </div>
+        </div>
+        <br>
+        <input type="submit" value="Tìm kiếm" class="btn btn-danger"/>
+    </form>
+    <br>
+
     <h5 class="text-primary">Danh sách tuyến</h5>
     <br/>
     <div class="d-flex w-100 flex-wrap justify-content-between">
@@ -53,7 +71,7 @@
     <div id="commentArea">
         <c:forEach items="${garage.commentCollection}" var="comment">
             <div style="margin-bottom: 4px;">
-                <img src="https://res.cloudinary.com/dwgjmgf6o/image/upload/v1661172802/L%E1%BA%ADp%20tr%C3%ACnh%20Java/Garage_Thumbnail/baytau_xrqp5w.jpg" 
+                <img src="${comment.userId.avatar}" 
                      alt="Avatar" 
                      class="avatar" 
                      style="vertical-align: middle;

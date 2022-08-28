@@ -9,6 +9,7 @@ import com.mycompany.service.TripService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.mycompany.repository.TripRepository;
+import java.util.Date;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,8 +23,8 @@ public class TripServiceImpl implements TripService {
     private TripRepository tripRepository;
 
     @Override
-    public List<Trip> getTripListByRouteId(int routeId) {
-        return this.tripRepository.getTripListByRouteId(routeId);
+    public List<Trip> getTripListByRouteId(int routeId, Date from, Date to) {
+        return this.tripRepository.getTripListByRouteId(routeId, from, to);
     }
 
     @Override

@@ -14,7 +14,7 @@ import com.mycompany.pojo.Route;
  */
 public interface RouteService {
     List<Route> getRoutes();
-    List<Route> getRoutesByGarageId(int id);
+    List<Route> getRoutesByGarageId(int id, String fromKw, String toKw);
     Route getRouteById(int id);
     void addRoute(Route route);
 }

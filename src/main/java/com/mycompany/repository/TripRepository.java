@@ -5,6 +5,7 @@
 package com.mycompany.repository;
 
 import com.mycompany.pojo.Trip;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,6 +13,6 @@ import java.util.List;
  * @author HIEU
  */
 public interface TripRepository {
-    List<Trip> getTripListByRouteId(int routeId);
+    List<Trip> getTripListByRouteId(int routeId, Date from, Date to);
     void addTrip (Trip trip);
 }

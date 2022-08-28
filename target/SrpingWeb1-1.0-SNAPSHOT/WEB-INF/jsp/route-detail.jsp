@@ -8,6 +8,25 @@
 
 <div class="w-80 m-0-auto mt-5">
     <h5 class="text-primary">Tuyến ${route.departure} ⇒ ${route.destination}</h5>
+    
+    <br/>
+    <form action="">
+        <div class="row">
+            <div class="form-group col">
+                <label>Từ ngày</label>
+                <input type="date" name="fromDate" class="form-control"/>
+            </div>
+            <div class="form-group col">
+                <label>Đến ngày</label>
+                <input type="date" name="toDate" class="form-control"/>
+            </div>
+            
+        </div>
+        <br>
+        <input type="submit" value="Tìm kiếm" class="btn btn-danger"/>
+    </form>
+    <br>
+    
     <p class="mt-3 text-secondary">Chọn giờ lên xe đi ${route.destination} từ ${route.departure} phù hợp</p>
     <div class="mt-3">
         <c:forEach items="${tripList}" var="t">
